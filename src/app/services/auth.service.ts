@@ -8,7 +8,7 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class AuthService {
-  private BASE_URL = 'localhost://1337';
+  private BASE_URL = 'http://localhost:1337';
 
 
   constructor(private http: HttpClient) { }

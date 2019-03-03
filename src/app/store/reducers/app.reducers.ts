@@ -32,6 +32,12 @@ export function  reducer(state: IState = initState, action: All): IState {
                 errorMessage: null
             };
         }
+        case AuthActionTypes.LOGIN_FAILURE: {
+            return {
+                ...state,
+                errorMessage: 'Invaild email or password'
+            };
+        }
         default: {
             return state;
         }

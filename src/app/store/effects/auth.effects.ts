@@ -41,5 +41,21 @@ export class AuthEffects {
                     );
                 })
         );
+
+    @Effect()
+    LogInSuccess: Observable<any>  = this.actions
+        .pipe(
+            ofType(AuthActionTypes.LOGIN_SUCCESS),
+            tap((user) => {
+                localStorage.setItem('token', user.payload.token);
+                this.router.navigateByUrl('/');
+            })
+        );
+    @Effect({dispatch: false})
+    LogInFailure: Observable<any> = this.actions
+        .pipe(
+            ofType(AuthActionTypes.LOGIN_FAILURE)
+        );
+
 }
 
